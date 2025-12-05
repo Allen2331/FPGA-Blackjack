@@ -32,7 +32,7 @@ module top (
     output                  rgb_r, rgb_g, rgb_b
 );
 
-    wire reset = ~sys_rst;
+    wire reset = sys_rst;
     wire button_start, button_hit, button_stand;
     debouncer db1 (
     .clk(sys_clk),

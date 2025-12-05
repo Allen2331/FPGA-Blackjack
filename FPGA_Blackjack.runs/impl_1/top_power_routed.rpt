@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date             : Thu Dec  4 14:45:07 2025
+| Date             : Fri Dec  5 13:13:43 2025
 | Host             : pp running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -52,13 +52,13 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      547 |       --- |             --- |
-|   LUT as Logic |     0.001 |      252 |     63400 |            0.40 |
+| Clocks         |     0.002 |        3 |       --- |             --- |
+| Slice Logic    |     0.002 |      542 |       --- |             --- |
+|   LUT as Logic |     0.001 |      259 |     63400 |            0.41 |
 |   CARRY4       |    <0.001 |       39 |     15850 |            0.25 |
 |   Register     |    <0.001 |      189 |    126800 |            0.15 |
 |   Others       |     0.000 |       14 |       --- |             --- |
-| Signals        |     0.001 |      420 |       --- |             --- |
+| Signals        |     0.001 |      415 |       --- |             --- |
 | I/O            |     0.006 |       55 |       210 |           26.19 |
 | Static Power   |     0.097 |          |           |                 |
 | Total          |     0.107 |          |           |                 |
@@ -137,10 +137,11 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------+-----------+
-| Name | Power (W) |
-+------+-----------+
-| top  |     0.010 |
-+------+-----------+
++-----------------+-----------+
+| Name            | Power (W) |
++-----------------+-----------+
+| top             |     0.010 |
+|   blackjack_fsm |     0.001 |
++-----------------+-----------+
 
 

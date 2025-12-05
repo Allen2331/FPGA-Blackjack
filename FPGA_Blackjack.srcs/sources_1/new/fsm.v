@@ -58,7 +58,7 @@ module fsm(
         dealer_hit <= 0;
         
         case(state)
-            3'b000: begin
+            3'b000: begin // Start mode
                 rgb_r <= 0; 
                 rgb_g <= 0;
                 rgb_b <= 0;
@@ -74,7 +74,7 @@ module fsm(
                 end
             end
             
-            3'b001: begin
+            3'b001: begin // Initial bet
                 deal_counter <= deal_counter + 1;
                 if (deal_counter == 1) begin
                     player_hit <= 1;
@@ -88,7 +88,7 @@ module fsm(
                 end
             end
             
-            3'b010: begin
+            3'b010: begin // Player turn
                 rgb_r <= 1; rgb_g <= 0; rgb_b <= 0;
                 if (player_score > 21) begin
                     state <= 3'b100;
@@ -100,7 +100,7 @@ module fsm(
                 end
             end 
             
-            3'b011: begin
+            3'b011: begin // Dealer turn
                 rgb_r <= 1; rgb_g <= 0; rgb_b <= 1;
                 if (dealer_score < 17) begin
                     if (delay < 26'd25000000) begin
@@ -114,7 +114,7 @@ module fsm(
                     end
                 end
                 
-            3'b100: begin
+            3'b100: begin // Win/Lose stage
                 if (player_score > 21) begin
                     rgb_r <= 1; rgb_g <= 0; rgb_b <= 0;
                     if (button_start) begin

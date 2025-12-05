@@ -1,0 +1,6 @@
+xpm_cdc.sv,systemverilog,xpm,../../../../../../../../Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0"incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_1"
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../Xilinx/Vivado/2024.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0"incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_1"
+clk_wiz_0_clk_wiz.v,verilog,xil_defaultlib,../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0"incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_1"
+clk_wiz_0.v,verilog,xil_defaultlib,../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v,incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0"incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_1"
+vga_core.v,verilog,xil_defaultlib,../../../../../../Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/vga_core.v,incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_0"incdir="../../../FPGA_Blackjack.gen/sources_1/ip/clk_wiz_1"
+glbl.v,Verilog,xil_defaultlib,glbl.v

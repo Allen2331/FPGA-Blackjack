@@ -89,7 +89,7 @@ module fsm(
             end
             
             3'b010: begin // Player turn
-                rgb_r <= 1; rgb_g <= 0; rgb_b <= 0;
+                rgb_r <= 1; rgb_g <= 1; rgb_b <= 0;
                 if (player_score > 21) begin
                     state <= 3'b100;
                 end else if (button_hit) begin

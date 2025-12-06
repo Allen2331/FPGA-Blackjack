@@ -38,22 +38,42 @@ module top (
     .clk(sys_clk),
     .rst(reset),
     .button_in(button_start_unbounced),
-    .button_out(button_start)
+    .button_out(button_start_db)
     );
     
     debouncer db2 (
     .clk(sys_clk),
     .rst(reset),
     .button_in(button_hit_unbounced),
-    .button_out(button_hit)
+    .button_out(button_hit_db)
     );
     
     debouncer db3 (
     .clk(sys_clk),
     .rst(reset),
     .button_in(button_stand_unbounced),
-    .button_out(button_stand)
+    .button_out(button_stand_db)
     );    
+    
+    reg button_start_prev, button_hit_prev, button_stand_prev;
+    wire button_start_pulse, button_hit_pulse, button_stand_pulse;
+    
+    always @(posedge sys_clk) begin
+        if (reset) begin
+            button_start_prev <= 0;
+            button_hit_prev <= 0;
+            button_stand_prev <= 0;
+        end else begin
+            button_start_prev <= button_start_db;
+            button_hit_prev <= button_hit_db;
+            button_stand_prev <= button_stand_db;
+        end
+    end 
+    
+    assign button_start_pulse = button_start_db & ~button_start_prev;
+    assign button_hit_pulse = button_hit_db & ~button_hit_prev;
+    assign button_stand_pulse = button_stand_db & ~button_stand_prev;
+    
     wire [3:0] rng_card;
     lfsr_rng rng (
     .clk(sys_clk),
@@ -85,9 +105,9 @@ module top (
     fsm blackjack_fsm (
     .clk(sys_clk),
     .rst(reset),
-    .button_start(button_start),
-    .button_hit(button_hit),
-    .button_stand(button_stand),
+    .button_start(button_start_pulse),
+    .button_hit(button_hit_pulse),
+    .button_stand(button_stand_pulse),
     .sw_bet(sw_bet),
     .player_score(player_score),
     .dealer_score(dealer_score),

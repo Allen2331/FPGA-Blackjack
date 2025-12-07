@@ -43,10 +43,8 @@ module display_driver(
         else if(tick) digit_select <= digit_select + 1;
     end
 
-    // Prepare BCD values
     reg [3:0] hex_to_show;
     
-    // Values extracted
     wire [3:0] l_tens = (left_val >= 20) ? 2 : (left_val >= 10) ? 1 : 0;
     wire [3:0] l_ones = left_val % 10;
     wire [3:0] r_tens = (right_val >= 20) ? 2 : (right_val >= 10) ? 1 : 0;

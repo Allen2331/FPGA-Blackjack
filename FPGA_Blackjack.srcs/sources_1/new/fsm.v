@@ -39,7 +39,7 @@ module fsm(
     
     reg [2:0]           state;
     reg [15:0]          current_bet;
-    reg [3:0]           deal_counter;
+    reg [4:0]           deal_counter;
     reg [25:0]          delay;
     
     always @(posedge clk or posedge rst) begin
@@ -75,35 +75,49 @@ module fsm(
             end
             
             3'b001: begin // Initial bet
-                deal_counter <= deal_counter + 1;
+                // deal_counter <= deal_counter + 1;
+                
+                if (delay < 26'd1000000) begin
+                    delay <= delay + 1;
+                end else begin
+                    delay <= 0;
+                    deal_counter <= deal_counter + 1;
+                    player_hit <= 0;
+                    dealer_hit <= 0;
+                
                 if (deal_counter == 1) begin
                     player_hit <= 1;
-                end else if (deal_counter == 5) begin
+                end else if (deal_counter == 2) begin
                     dealer_hit <= 1; 
-                end else if (deal_counter == 10) begin 
+                end else if (deal_counter == 3) begin 
                     player_hit <= 1;
-                end else if (deal_counter == 15) begin
+                end else if (deal_counter == 4) begin
                     dealer_hit <= 1;
+                end else if (deal_counter == 5) begin
+                    if (dealer_score == 21) begin
+                    state <= 3'b100;
+                end else begin    
                     state <= 3'b010;
+                    end
                 end
             end
-            
+            end
             3'b010: begin // Player turn
                 rgb_r <= 1; rgb_g <= 1; rgb_b <= 0;
-                if (player_score > 21) begin
+                if (player_score >= 21) begin
                     state <= 3'b100;
                 end else if (button_hit) begin
                     player_hit <= 1;
                 end else if (button_stand) begin
                     state <= 3'b011;
                     delay <= 0;
-                end
+                end 
             end 
             
             3'b011: begin // Dealer turn
                 rgb_r <= 1; rgb_g <= 0; rgb_b <= 1;
-                if (dealer_score < 17) begin
-                    if (delay < 26'd25000000) begin
+                if (dealer_score < 17) begin // This is a rule for dealers, they have to stand for a total of 17 or more
+                    if (delay < 26'd50000000) begin
                         delay <= delay + 1;
                     end else begin
                         dealer_hit <= 1;
@@ -127,7 +141,13 @@ module fsm(
                         money_out <= money_out + current_bet;
                         state <= 3'b000;
                     end
-                end else if (player_score > dealer_score) begin
+                end else if ((dealer_score == 21) && (player_score < 21)) begin
+                    rgb_r <= 1; rgb_g <= 0; rgb_b <= 0;
+                    if (button_start) begin
+                        money_out <= money_out - current_bet;
+                        state <= 3'b000;
+                    end
+                end else if (player_score > dealer_score && ~(player_score > 21)) begin
                     rgb_r <= 0; rgb_g <= 1; rgb_b <= 0;
                     if (button_start) begin
                         money_out <= money_out + current_bet;
@@ -138,6 +158,12 @@ module fsm(
                     if (button_start) begin
                         money_out <= money_out - current_bet;
                         state <= 3'b000;                
+                    end
+                end else if (player_score == dealer_score) begin // Tie
+                    rgb_r <= 1; rgb_g <= 1; rgb_b <= 1;
+                    if (button_start) begin
+                        money_out <= money_out; // This is a push, no money won or lost
+                        state <= 3'b000;
                     end
                 end else begin
                 rgb_r <= 0; rgb_g <= 0; rgb_b <= 1;

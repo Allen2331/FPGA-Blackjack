@@ -27,16 +27,19 @@ module lfsr_rng(
     output [3:0]    card_out
     );
     
-    reg [15:0] lfsr;
+    reg [31:0] lfsr;
+    
+    wire feedback = lfsr[31] ^ lfsr[16] ^ lfsr[17] ^ lfsr[0];
     
     always @(posedge clk) begin
         if (rst) 
-            lfsr <= 16'hACEE;
+            lfsr <= 32'hACEEEECA;
         else if (en) begin
-            lfsr <= {lfsr[14:0], lfsr[15] ^ lfsr[13] ^ lfsr[12] ^ lfsr[10]};
+            lfsr <= {lfsr[30:0], feedback};
         end
     end
     
-    assign card_out = lfsr[3:0];
+    wire [3:0] raw_card = (lfsr[15:0] % 13) + 1;
+    assign card_out = raw_card;
     
 endmodule

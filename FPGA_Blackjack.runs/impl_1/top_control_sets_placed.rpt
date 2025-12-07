@@ -1,0 +1,95 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sat Dec  6 19:19:31 2025
+| Host         : pp running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    17 |
+|    Minimum number of control sets                        |    17 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    62 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    17 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     4 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     5 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               7 |            4 |
+| No           | No                    | Yes                    |               6 |            3 |
+| No           | Yes                   | No                     |              86 |           35 |
+| Yes          | No                    | No                     |              41 |           14 |
+| Yes          | No                    | Yes                    |              19 |            9 |
+| Yes          | Yes                   | No                     |              35 |           15 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------+----------------------------------------+-----------------------------------------------+------------------+----------------+--------------+
+|    Clock Signal    |              Enable Signal             |                Set/Reset Signal               | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------+----------------------------------------+-----------------------------------------------+------------------+----------------+--------------+
+|  sys_clk_IBUF_BUFG | card_logger/transmitter_log/tx_i_1_n_0 |                                               |                1 |              1 |         1.00 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/delay[25]_i_2_n_0        |                                               |                1 |              1 |         1.00 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/rgb_r_i_1_n_0            | sys_rst_IBUF                                  |                3 |              3 |         1.00 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/E[0]                     |                                               |                1 |              4 |         4.00 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/deal_counter[4]_i_1_n_0  |                                               |                2 |              5 |         2.50 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/dealer_hit               | blackjack_fsm/reset_hands                     |                4 |              5 |         1.25 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/player_hit               | blackjack_fsm/reset_hands                     |                4 |              5 |         1.25 |
+|  sys_clk_IBUF_BUFG |                                        | blackjack_fsm/reset_hands                     |                3 |              6 |         2.00 |
+|  sys_clk_IBUF_BUFG |                                        |                                               |                4 |              7 |         1.75 |
+|  sys_clk_IBUF_BUFG | card_logger/transmitter_log/data       |                                               |                3 |              7 |         2.33 |
+|  sys_clk_IBUF_BUFG | card_logger/transmitter_log/E[0]       |                                               |                2 |              7 |         3.50 |
+|  sys_clk_IBUF_BUFG |                                        | card_logger/baud_rate_unit/counter[9]_i_1_n_0 |                4 |             10 |         2.50 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/current_bet[15]_i_1_n_0  |                                               |                4 |             16 |         4.00 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/money_out[15]_i_1_n_0    | sys_rst_IBUF                                  |                6 |             16 |         2.67 |
+|  sys_clk_IBUF_BUFG |                                        | seven_seg/refresh_cnt[0]_i_1_n_0              |                5 |             17 |         3.40 |
+|  sys_clk_IBUF_BUFG | blackjack_fsm/delay[25]_i_2_n_0        | blackjack_fsm/delay[25]_i_1_n_0               |                7 |             25 |         3.57 |
+|  sys_clk_IBUF_BUFG |                                        | sys_rst_IBUF                                  |               26 |             59 |         2.27 |
++--------------------+----------------------------------------+-----------------------------------------------+------------------+----------------+--------------+
+
+

@@ -73,11 +73,14 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+  {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/baud_rate_gen.v}
   {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/debouncer.v}
   {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/display_driver.v}
   {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/fsm.v}
   {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/hand_logic.v}
   {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/lfsr_rng.v}
+  {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/uart_card_log.v}
+  {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/uart_tx.v}
   {C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/top.v}
 }
 OPTRACE "Adding files" END { }

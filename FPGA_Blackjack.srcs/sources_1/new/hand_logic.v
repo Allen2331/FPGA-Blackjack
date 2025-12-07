@@ -54,17 +54,20 @@ module hand_logic(
             ace_count <= 0;
         end else if (add_card_en) begin
             if (ace) begin
-                score <= score + 11;
-                ace_count <= ace_count + 1;
+                if ({1'b0, score} + 11 > 21) begin
+                    score <= score + 1; // This forces the ace to have a value of 1
+                end else begin
+                    score <= score + 11; // If the total score is not over 21, then the ace has a value of 11
+                    ace_count <= ace_count + 1; 
+                end
+            end else begin
+            if (({1'b0, score} + card_val > 21) && (ace_count > 0)) begin
+                score <= score + card_val - 10;
+                ace_count <= ace_count - 1;
             end else begin
                 score <= score + card_val;
-            end
-        end else begin
-            if (score > 21 && ace_count > 0) begin
-                score <= score - 10;
-                ace_count <= ace_count -1;
+                end
             end
         end
     end
-    
 endmodule

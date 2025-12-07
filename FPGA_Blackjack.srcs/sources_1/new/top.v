@@ -29,7 +29,8 @@ module top (
     output [15:0]           LED,
     output [7:0]            anode,
     output [6:0]            seg,
-    output                  rgb_r, rgb_g, rgb_b
+    output                  rgb_r, rgb_g, rgb_b,
+    output                  uart_txd_in
 );
 
     wire reset = sys_rst;
@@ -88,7 +89,7 @@ module top (
     
     hand_logic player (
     .clk(sys_clk),
-    .rst(reset),
+    .rst(reset_hands),
     .add_card_en(player_hit),
     .card_value_in(rng_card),
     .score(player_score)
@@ -96,7 +97,7 @@ module top (
     
     hand_logic dealer (
     .clk(sys_clk),
-    .rst(reset),
+    .rst(reset_hands),
     .add_card_en(dealer_hit),
     .card_value_in(rng_card),
     .score(dealer_score)
@@ -128,4 +129,14 @@ module top (
     .anode(anode),
     .seg(seg)
     );
+    
+    uart_card_log card_logger (
+    .clk(sys_clk),
+    .rst(reset),
+    .player_hit(player_hit),
+    .dealer_hit(dealer_hit),
+    .card_value(rng_card),
+    .tx_pin(uart_txd_in)
+    );
+    
 endmodule

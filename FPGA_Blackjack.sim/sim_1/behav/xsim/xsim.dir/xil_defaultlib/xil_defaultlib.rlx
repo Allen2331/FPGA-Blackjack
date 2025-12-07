@@ -1,0 +1,16 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sim_1/new/fsm_tb.v,1765142742,verilog,,,,fsm_tb,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sim_1/new/hand_logic_tb.v,1765126373,verilog,,,,hand_logic_tb,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/baud_rate_gen.v,1765070152,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/debouncer.v,,baud_rate_gen,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/debouncer.v,1765055757,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/display_driver.v,,debouncer,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/display_driver.v,1765058079,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/fsm.v,,display_driver,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/fsm.v,1765132527,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sim_1/new/fsm_tb.v,,fsm,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/hand_logic.v,1765060355,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sim_1/new/hand_logic_tb.v,,hand_logic,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/lfsr_rng.v,1765066420,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/uart_card_log.v,,lfsr_rng,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/top.v,1765074018,verilog,,,,top,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/uart_card_log.v,1765080100,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/uart_tx.v,,uart_card_log,,,,,,,,
+C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/uart_tx.v,1765074099,verilog,,C:/Users/Allen/Vivado Projects/FPGA-Blackjack/FPGA_Blackjack.srcs/sources_1/new/top.v,,uart_tx,,,,,,,,

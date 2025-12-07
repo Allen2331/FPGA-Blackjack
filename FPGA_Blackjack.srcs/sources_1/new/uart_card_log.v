@@ -113,16 +113,22 @@ module uart_card_log(
             
             VALUE: begin
                 if (!tx_busy && !send_pulse) begin
+                    send_pulse <= 1;
                     if (saved_card == 1) begin
                         send_data <= "A";
+                        state <= CARRIAGE;
                     end else if (saved_card == 11) begin
                         send_data <= "J";
+                        state <= CARRIAGE;
                     end else if (saved_card == 12) begin
                         send_data <= "Q";
+                        state <= CARRIAGE;
                     end else if (saved_card == 13) begin
                         send_data <= "K";
+                        state <= CARRIAGE;
                     end else if (saved_card == 10) begin
                         send_data <= "1";
+                        state <= CARRIAGE;
                     end else begin
                         send_data <= saved_card + 48;
                         send_pulse <= 1;
@@ -138,11 +144,10 @@ module uart_card_log(
             VALUE_10: begin
                 if (!tx_busy && !send_pulse) begin
                     send_data <= "0";
-                    state <= CARRAIGE;
+                    state <= CARRIAGE;
                     send_pulse <= 1;
                     end
                 end                
-            end
             
             CARRIAGE: begin
                 if (!tx_busy && !send_pulse) begin

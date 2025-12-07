@@ -20,7 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module fsm(
+module fsm #(
+    parameter CARD_SPEED = 26'd1000000,
+    parameter DEALER_SPEED = 26'd50000000)
+    (
     input               clk,
     input               rst,
     input               button_start,
@@ -70,14 +73,13 @@ module fsm(
                         state <= 3'b001;
                         deal_counter <= 0;
                         reset_hands <= 0;
+                        delay <= 0;
                     end
                 end
             end
             
             3'b001: begin // Initial bet
-                // deal_counter <= deal_counter + 1;
-                
-                if (delay < 26'd1000000) begin
+                if (delay < CARD_SPEED) begin
                     delay <= delay + 1;
                 end else begin
                     delay <= 0;
@@ -85,22 +87,21 @@ module fsm(
                     player_hit <= 0;
                     dealer_hit <= 0;
                 
-                if (deal_counter == 1) begin
+                if (deal_counter == 1) 
                     player_hit <= 1;
-                end else if (deal_counter == 2) begin
+                else if (deal_counter == 2)
                     dealer_hit <= 1; 
-                end else if (deal_counter == 3) begin 
+                else if (deal_counter == 3) 
                     player_hit <= 1;
-                end else if (deal_counter == 4) begin
+                else if (deal_counter == 4)
                     dealer_hit <= 1;
-                end else if (deal_counter == 5) begin
-                    if (dealer_score == 21) begin
+                else if (deal_counter == 5) begin
+                    if (dealer_score == 21)
                     state <= 3'b100;
-                end else begin    
+                    else   
                     state <= 3'b010;
                     end
                 end
-            end
             end
             3'b010: begin // Player turn
                 rgb_r <= 1; rgb_g <= 1; rgb_b <= 0;
@@ -117,7 +118,7 @@ module fsm(
             3'b011: begin // Dealer turn
                 rgb_r <= 1; rgb_g <= 0; rgb_b <= 1;
                 if (dealer_score < 17) begin // This is a rule for dealers, they have to stand for a total of 17 or more
-                    if (delay < 26'd50000000) begin
+                    if (delay < DEALER_SPEED) begin
                         delay <= delay + 1;
                     end else begin
                         dealer_hit <= 1;

@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sun Dec  7 15:03:19 2025
+# Process ID         : 40084
+# Current directory  : C:/Users/tayle/VivadoProjects/FPGA-Blackjack
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent29400 C:\Users\tayle\VivadoProjects\FPGA-Blackjack\FPGA_Blackjack.xpr
+# Log file           : C:/Users/tayle/VivadoProjects/FPGA-Blackjack/vivado.log
+# Journal file       : C:/Users/tayle/VivadoProjects/FPGA-Blackjack\vivado.jou
+# Running On         : LAPTOP-UHECG2JI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : Intel(R) Core(TM) Ultra 7 155H
+# CPU Frequency      : 2995 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 22
+# Host memory        : 33752 MB
+# Swap memory        : 15569 MB
+# Total Virtual      : 49322 MB
+# Available Virtual  : 24497 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/tayle/VivadoProjects/FPGA-Blackjack/FPGA_Blackjack.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 11
+wait_on_run synth_1
+launch_runs impl_1 -jobs 11
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 11
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/tayle/VivadoProjects/FPGA-Blackjack/FPGA_Blackjack.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/tayle/VivadoProjects/FPGA-Blackjack/FPGA_Blackjack.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs synth_1 -jobs 11
+wait_on_run synth_1

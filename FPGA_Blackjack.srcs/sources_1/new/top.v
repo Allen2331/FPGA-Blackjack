@@ -136,7 +136,10 @@ module top (
     .player_hit(player_hit),
     .dealer_hit(dealer_hit),
     .card_value(rng_card),
+    .button_start(button_start_pulse),   // NEW
+    .player_bet(sw_bet),                 // NEW
     .tx_pin(uart_txd_in)
-    );
+);
+
     
 endmodule

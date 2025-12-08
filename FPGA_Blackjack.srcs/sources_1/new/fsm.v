@@ -21,8 +21,8 @@
 
 
 module fsm #(
-    parameter CARD_SPEED = 26'd1000000,
-    parameter DEALER_SPEED = 26'd50000000)
+    parameter CARD_SPEED = 26'd1000000, // 26'd1000000
+    parameter DEALER_SPEED = 26'd50000000) // 26'd50000000
     (
     input               clk,
     input               rst,
@@ -94,13 +94,7 @@ module fsm #(
                 else if (deal_counter == 3) 
                     player_hit <= 1;
                 else if (deal_counter == 4)
-                    dealer_hit <= 1;
-                else if (deal_counter == 5) begin
-                    if (dealer_score == 21)
-                    state <= 3'b100;
-                    else   
                     state <= 3'b010;
-                    end
                 end
             end
             3'b010: begin // Player turn

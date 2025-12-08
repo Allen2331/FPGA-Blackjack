@@ -128,7 +128,7 @@ module uart_card_log(
                         state <= CARRIAGE;
                     end else if (saved_card == 10) begin
                         send_data <= "1";
-                        state <= CARRIAGE;
+                        state <= VALUE_10;
                     end else begin
                         send_data <= saved_card + 48;
                         send_pulse <= 1;

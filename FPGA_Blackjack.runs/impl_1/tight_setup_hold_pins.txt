@@ -1,14 +1,14 @@
 +====================+===================+===========================+
 | Launch Setup Clock | Launch Hold Clock | Pin                       |
 +====================+===================+===========================+
-| sys_clk_pin        | sys_clk_pin       | dealer/score_reg[4]/D     |
-| sys_clk_pin        | sys_clk_pin       | player/score_reg[2]/D     |
-| sys_clk_pin        | sys_clk_pin       | dealer/ace_count_reg[0]/D |
-| sys_clk_pin        | sys_clk_pin       | dealer/score_reg[2]/D     |
 | sys_clk_pin        | sys_clk_pin       | player/score_reg[1]/D     |
-| sys_clk_pin        | sys_clk_pin       | player/ace_count_reg[0]/D |
 | sys_clk_pin        | sys_clk_pin       | dealer/score_reg[1]/D     |
-| sys_clk_pin        | sys_clk_pin       | dealer/ace_count_reg[2]/D |
-| sys_clk_pin        | sys_clk_pin       | player/ace_count_reg[2]/D |
 | sys_clk_pin        | sys_clk_pin       | player/ace_count_reg[1]/D |
+| sys_clk_pin        | sys_clk_pin       | player/ace_count_reg[2]/D |
+| sys_clk_pin        | sys_clk_pin       | dealer/score_reg[2]/D     |
+| sys_clk_pin        | sys_clk_pin       | dealer/ace_count_reg[0]/D |
+| sys_clk_pin        | sys_clk_pin       | player/score_reg[2]/D     |
+| sys_clk_pin        | sys_clk_pin       | player/ace_count_reg[0]/D |
+| sys_clk_pin        | sys_clk_pin       | dealer/ace_count_reg[2]/D |
+| sys_clk_pin        | sys_clk_pin       | dealer/ace_count_reg[1]/D |
 +--------------------+-------------------+---------------------------+

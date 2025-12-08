@@ -47,7 +47,7 @@ module debouncer(
         end else begin
             if (button_sync1 != button_out) begin
                 counter <= counter + 1;
-                if (counter <= 22'd2500000) begin
+                if (counter <= 22'd2500000) begin // 22'd2500000
                     button_out <= button_sync1;
                     counter <= 0;
                 end else begin

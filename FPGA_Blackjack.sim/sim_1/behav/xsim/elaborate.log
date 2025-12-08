@@ -9,7 +9,7 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.fsm(CARD_SPEED=5,DEALER_SPEED=5)
+Compiling module xil_defaultlib.fsm
 Compiling module xil_defaultlib.fsm_tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot fsm_tb_behav

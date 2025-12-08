@@ -53,10 +53,22 @@ module display_driver(
     always @(*) begin
         anode = 8'hFF; // All off by default
         case (digit_select)
-            2'd0: begin anode = 8'b11111110; hex_to_show = r_ones; end // Rightmost
-            2'd1: begin anode = 8'b11111101; hex_to_show = r_tens; end
-            2'd2: begin anode = 8'b10111111; hex_to_show = l_ones; end 
-            2'd3: begin anode = 8'b01111111; hex_to_show = l_tens; end // Leftmost active
+            2'd0: begin 
+                anode = 8'b11111110; 
+                hex_to_show = r_ones;
+            end // Rightmost
+            2'd1: begin 
+                anode = 8'b11111101; 
+                hex_to_show = r_tens; 
+            end
+            2'd2: begin 
+                anode = 8'b10111111; 
+                hex_to_show = l_ones; 
+            end 
+            2'd3: begin 
+                anode = 8'b01111111; 
+                hex_to_show = l_tens; 
+            end // Leftmost active
         endcase
     end
 
